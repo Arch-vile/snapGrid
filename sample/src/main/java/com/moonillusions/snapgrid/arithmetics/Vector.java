@@ -40,4 +40,15 @@ public class Vector {
 		return new Vector(multiplier * getX(), multiplier * getY());
 	}
 
+	public Vector scale(double scale) {
+		return this.unit().multiply(scale);
+	}
+
+	public Vector rotate(double degrees) {
+		double radians = Math.toRadians(-1 * degrees);
+		return new Vector(//
+				getX() * Math.cos(radians) - getY() * Math.sin(radians), //
+				getX() * Math.sin(radians) + getY() * Math.cos(radians));
+	}
+
 }
