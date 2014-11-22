@@ -20,8 +20,12 @@ public class Vector {
 		return this.point.getY();
 	}
 
+	public Vector add(Vector add) {
+		return new Vector(getX() + add.getX(), getY() + add.getY());
+	}
+
 	public Vector subtract(Vector subtract) {
-		return new Vector(getX() - subtract.getX(), getY() - subtract.getY());
+		return add(subtract.multiply(-1));
 	}
 
 	public Vector perpendicular() {
@@ -49,6 +53,10 @@ public class Vector {
 		return new Vector(//
 				getX() * Math.cos(radians) - getY() * Math.sin(radians), //
 				getX() * Math.sin(radians) + getY() * Math.cos(radians));
+	}
+
+	public Point toPoint() {
+		return new Point(getX(), getY());
 	}
 
 }

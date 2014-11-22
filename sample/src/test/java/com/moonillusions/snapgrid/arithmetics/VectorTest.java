@@ -25,6 +25,16 @@ public class VectorTest {
 	}
 
 	@Test
+	public void add() {
+		Vector addTo = new Vector(20, 30);
+		Vector add = new Vector(11, 35);
+		Vector result = addTo.add(add);
+
+		assertThat(result.getX(), equalTo(31d));
+		assertThat(result.getY(), equalTo(65d));
+	}
+
+	@Test
 	public void perpendicular() {
 		Vector perpendicular = new Vector(2, 3).perpendicular();
 		assertThat(perpendicular.getX(), equalTo(-3d));

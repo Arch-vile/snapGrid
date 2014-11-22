@@ -15,4 +15,9 @@ public class PointTest {
 		assertThat(point1.distance(point2), equalTo(Math.sqrt(53)));
 	}
 
+	@Test
+	public void equals() {
+		assertThat(new Point(20, 30), equalTo(new Point(20, 30)));
+	}
+
 }
