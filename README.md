@@ -1,4 +1,10 @@
 snapGrid
 ========
 
-some simple exercise with vectors
+
+
+
+![Alt text](/snapGrid.png?raw=true "Optional Title")
+
+
+
