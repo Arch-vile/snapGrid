@@ -1,11 +1,10 @@
 package com.moonillusions.snapgrid;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import com.moonillusions.snapgrid.arithmetics.Point;
+import com.moonillusions.snapgrid.arithmetics.PointCollection;
 import com.moonillusions.snapgrid.arithmetics.Vector;
 
 public class Grid {
@@ -27,8 +26,9 @@ public class Grid {
 	 * @return Point to which the mouse should snap
 	 */
 	public Point getSnap(Point lastPoint, Point previousPoint, Point mouse) {
-		List<Point> snapPoints = getSnapPoints(lastPoint, previousPoint, mouse);
-		return closestToMouse(snapPoints, mouse);
+		PointCollection snapPoints = new PointCollection(getSnapPoints(
+				lastPoint, previousPoint, mouse));
+		return snapPoints.closestTo(mouse);
 	}
 
 	/**
@@ -54,8 +54,7 @@ public class Grid {
 		Vector perpendicularToBase = base.perpendicular();
 
 		double radius = lastPoint.distance(mouse);
-		Vector radiusVector = perpendicularToBase.scale(radius);
-		return radiusVector;
+		return perpendicularToBase.scale(radius);
 	}
 
 	private List<Point> calculateSnapPoints(Point lastPoint, Vector radiusVector) {
@@ -69,19 +68,6 @@ public class Grid {
 		}
 
 		return snapPoints;
-	}
-
-	private Point closestToMouse(final List<Point> snapPoints, final Point mouse) {
-
-		Collections.sort(snapPoints, new Comparator<Point>() {
-
-			public int compare(Point point1, Point point2) {
-				return (int) (point1.distance(mouse) - point2.distance(mouse));
-			}
-
-		});
-
-		return snapPoints.get(0);
 	}
 
 }
