@@ -9,7 +9,7 @@ Problem is solved by using vector arithmetics. We create the RadiusVector which 
 
 Drawing the radius vector starting from the center of the circle gives the first snap point. Other snap points are found by rotating the radius vector in steps 45 degrees at a time using the circle's center as rotation point.
 
-Finally from the list of calcuated points, the closest to the mouse is selected.
+Finally from the list of calculated points, the closest to the mouse is selected.
 
 ![Alt text](/snapGrid.png?raw=true "Optional Title")
 
